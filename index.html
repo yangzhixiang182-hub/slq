@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#110b14">
+  <title>今日关怀程序</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <section class="scene intro-scene is-active" id="introScene" aria-labelledby="introTitle">
+      <div class="window">
+        <header class="window-bar">
+          <span class="status-dot"></span>
+          <span>CARE_SYSTEM.exe</span>
+          <span class="window-status">ONLINE</span>
+        </header>
+
+        <div class="window-body intro-body">
+          <p class="eyebrow">PRIVATE CHANNEL / FOR HER ONLY</p>
+          <h1 class="sr-only" id="introTitle">今日关怀程序</h1>
+
+          <div class="dialogue" id="introDialogue" aria-live="polite"></div>
+
+          <ul class="checklist" id="checklist" aria-label="关怀程序准备清单">
+            <li>热汤已准备</li>
+            <li>拥抱已准备</li>
+            <li>小惊喜视频已准备</li>
+            <li>今天允许偷懒</li>
+          </ul>
+
+          <button class="primary-button continue-button" id="continueButton" type="button" disabled>
+            <span>继续</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene care-scene" id="careScene" aria-labelledby="careTitle" hidden>
+      <div class="window care-window">
+        <header class="window-bar">
+          <span class="status-dot"></span>
+          <span>CARE_SYSTEM.exe</span>
+          <span class="window-status">DAY 2</span>
+        </header>
+
+        <div class="window-body">
+          <p class="eyebrow">TODAY'S SPECIAL EVENT</p>
+          <h2 id="careTitle">给你的一点点偏爱</h2>
+
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" poster="">
+              <source src="surprise.mp4" type="video/mp4">
+              你的浏览器暂时无法播放这个视频。
+            </video>
+            <span class="video-label">MEMORY_01</span>
+          </div>
+
+          <div class="love-note">
+            <p>今天不用很厉害，也不用很坚强。</p>
+            <p>你已经做得很好了。</p>
+          </div>
+
+          <div class="rewards" aria-label="今日关怀选项">
+            <button class="reward-button" id="soupButton" type="button">
+              <span class="reward-icon" aria-hidden="true">01</span>
+              <span>领取热汤</span>
+            </button>
+            <button class="reward-button" id="hugButton" type="button">
+              <span class="reward-icon" aria-hidden="true">02</span>
+              <span>领取抱抱</span>
+            </button>
+            <button class="reward-button reward-secret" id="secretButton" type="button">
+              <span class="reward-icon" aria-hidden="true">?</span>
+              <span>今日隐藏奖励</span>
+            </button>
+          </div>
+
+          <div class="message-box" id="messageBox" aria-live="polite">
+            <span class="message-cursor" aria-hidden="true">›</span>
+            <span id="rewardMessage">请选择一项今日关怀。</span>
+          </div>
+
+          <button class="primary-button finish-button" id="finishButton" type="button">
+            完成今日关怀程序
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene ending-scene" id="endingScene" aria-labelledby="endingTitle" hidden>
+      <div class="ending-card">
+        <p class="eyebrow">PROGRAM COMPLETE</p>
+        <div class="ending-heart" aria-hidden="true">♥</div>
+        <h2 id="endingTitle">系统提示：</h2>
+        <p>她今天也被好好爱着。<span aria-label="爱心">❤️</span></p>
+        <div class="ending-line" aria-hidden="true"></div>
+        <small>明天也会继续。</small>
+      </div>
+    </section>
+
+    <div class="hearts-layer" id="heartsLayer" aria-hidden="true"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
